@@ -26,7 +26,7 @@ public class ProductController {
 
 
     @GetMapping("/getAllProduct")
-    public ResponseEntity<String> getAllMedicines() {
+    public ResponseEntity<String> getAllProducts() {
         try {
 
             List<Product> products = productRepo.findAll();
