@@ -2,57 +2,64 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Holidays for Cadets</title>
+    <title>Store Products</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
-    <head>
-        <meta charset ="UTF-8">
-        <title>List of products in the food warehouse</title>
-        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
-    </head>
+</head>
 <body>
-<div class="...">
-    <h1> Список продуктів на продовольчому складі </h1>
-    <div class="...">
+<div class="container">
+    <h1>Генерація документів на відпустку курсантів</h1>
+    <div class="row">
         <br>
-        <form action="#" th:action="{@/add}" th:object="${product}"
+        <form action="#" th:action="@{/add}" th:object="${product}"
               method="post">
             <table>
                 <tr>
-                    <td>Nazva and kilkist(kg):</td>
-                    <td><input type="text" field="*{nazva}" name="nazva">
-                        <input type="number": field="*{kilkist}" name="kilkist">
-                    </td>
+                    <td>Name:</td>
+                    <td><input type="text" :field="*{name}" name="name"> </td>
                 </tr>
                 <tr>
-                    <td>Number invoice:</td>
-                    <td><input type="number" : field="* {numberInvoice}" name="numberInvoice"></td>
+                    <td>Quantity:</td>
+                    <td><input type="text" :field="*{quantity}" name="quantity"></td>
                 </tr>
                 <tr>
+                    <td>Kilograms:</td>
+                    <td><input type="text" :field="*{kilograms}" name="kilograms"></td>
                 </tr>
-                <td>Expiration date:</td>
-                <td><input type="date" :field="*{date}" name="date"></td>
-                </td>
+                <tr>
+                    <td>Invoice Number:</td>
+                    <td><input type="text" :field="*{invoiceNumber}" name="invoiceNumber"></td>
+                </tr>
+                <tr>
+                    <td>ExpirationDate:</td>
+                    <td><input type="text" :field="*{expirationDate}" name="expirationDate"></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Add</button> </td>
                 </tr>
             </table>
-            </form>
-            <br>
-            <div>
-                <a href="/download/pdf">Click here to download pdf</a> <br>
-                <a href="/download/excel">Click here to download excel</a> <br>
-            </div>
-            <table class = "...">
+        </form>
+        <br>
+        <div>
+            <a href="/download/pdf">Click here to download pdf</a> <br>
+            <a href="/download/excel">Click here to download excel</a><br>
+        </div>
+            <table class="table">
                 <thead>
                 <tr>
-                    <th>Nazva and kilkist </th>
-                    <th>Number invoice</th>
-                    <td>Expiration</td>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Kilograms</th>
+                    <th>Invoice Number</th>
+                    <th>Expiration Date</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th : tach = "cfdet : ${cfdets}">
-                    <td th : text = "${product.nazva},{product.kilkist}"></td>
-                    <td th : text = "${product.numberInvoice}"></td>
-                    <td th : date = "${product.date}"></td>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.quantity}"></td>
+                    <td th:text="${product.kilograms}"></td>
+                    <td th:text="${product.invoiceNumber}"></td>
+                    <td th:text="${product.expirationDate}"></td>
                 </tr>
                 </tbody>
             </table>
