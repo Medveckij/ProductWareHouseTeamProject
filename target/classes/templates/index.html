@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Holidays for Cadets</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <head>
+        <meta charset ="UTF-8">
+        <title>List of products in the food warehouse</title>
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    </head>
+<body>
+<div class="...">
+    <h1> Список продуктів на продовольчому складі </h1>
+    <div class="...">
+        <br>
+        <form action="#" th:action="{@/add}" th:object="${product}"
+              method="post">
+            <table>
+                <tr>
+                    <td>Nazva and kilkist(kg):</td>
+                    <td><input type="text" field="*{nazva}" name="nazva">
+                        <input type="number": field="*{kilkist}" name="kilkist">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Number invoice:</td>
+                    <td><input type="number" : field="* {numberInvoice}" name="numberInvoice"></td>
+                </tr>
+                <tr>
+                </tr>
+                <td>Expiration date:</td>
+                <td><input type="date" :field="*{date}" name="date"></td>
+                </td>
+                </tr>
+            </table>
+            </from>
+            <br>
+            <div>
+                <a href="/download/pdf">Click here to download pdf</a> <br>
+                <a href="/download/excel">Click here to download excel</a> <br>
+            </div>
+            <table class = "...">
+                <thead>
+                <tr>
+                    <th>Nazva and kilkist </th>
+                    <th>Number invoice</th>
+                    <td>Expiration</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th : tach = "cfdet : ${cfdets}">
+                    <td th : text = "${product.nazva},{product.kilkist}"></td>
+                    <td th : text = "${product.numberInvoice}"></td>
+                    <td th : date = "${product.date}"></td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
+</body>
+</html>
+
