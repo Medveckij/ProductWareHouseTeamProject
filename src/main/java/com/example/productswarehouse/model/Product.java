@@ -1,4 +1,4 @@
-package model;
+package com.example.productswarehouse.model;
 
 import jakarta.persistence.*;
 
@@ -13,18 +13,16 @@ public class Product {
     private String name;
     private double quantity;
 
-    private Integer piece;
     private double kilograms;
     private String invoiceNumber;
     private String expirationDate;
 
-    public Product(String name, double quantity, String invoiceNumber, String expirationDate, double kilograms, Integer piece) {
+    public Product(String name, double quantity, String invoiceNumber, String expirationDate, double kilograms) {
         this.name = name;
         this.quantity = quantity;
         this.invoiceNumber = invoiceNumber;
         this.expirationDate = expirationDate;
         this.kilograms = kilograms;
-        this.piece = piece;
     }
 
     public Product() {
@@ -32,12 +30,7 @@ public class Product {
     }
 
 
-    public Integer getPiece(){
-        return piece;
-    }
-    public void setPiece(int piece){
-        this.piece = piece;
-    }
+
     public String getName() {
         return name;
     }
@@ -46,7 +39,7 @@ public class Product {
         this.name = name;
     }
     public double getKilograms() {
-        return  kilograms;
+        return kilograms;
     }
     public void setKilograms(double kilograms) {
         this.kilograms = kilograms;
